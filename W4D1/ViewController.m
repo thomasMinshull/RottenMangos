@@ -21,7 +21,23 @@
     NSString *urlAsString = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=";
     
     NSURL *url = [NSURL URLWithString:[urlAsString stringByAppendingString:apiKey]];
-    NSURLSession *sessions = [NSURLSession]
+    NSURLSession *sessions = [NSURLSession sharedSession];
+    
+    [[sessions dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error == nil) {
+            NSError *jsonError = nil;
+            
+            NSArray *allResponses = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            
+            NSLog(@"all Responses, %@", allResponses);
+            
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.tableView reloadData];
+//            });
+        }
+        
+    }] resume];
     
 }
 

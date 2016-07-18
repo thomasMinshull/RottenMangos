@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "706F4A4526C7FD0BAC2C817B23C8DB0034CAEA13" : 0,
+    "F2800A697EB7AE359E57277ABC73C9A16534F343" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "260E9F83-551B-400D-B531-A2DD291D9551",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "706F4A4526C7FD0BAC2C817B23C8DB0034CAEA13" : "..",
+    "F2800A697EB7AE359E57277ABC73C9A16534F343" : "..\/.."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "W4D1",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "W4D1.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/thomasMinshull\/2PlayerMath.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "706F4A4526C7FD0BAC2C817B23C8DB0034CAEA13"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/thomasMinshull\/LHL.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F2800A697EB7AE359E57277ABC73C9A16534F343"
+    }
+  ]
+}
