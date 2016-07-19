@@ -19,6 +19,7 @@
 		5521FF2E1D3DA9C80034CBCA /* ReviewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF2D1D3DA9C80034CBCA /* ReviewsTableViewController.m */; };
 		5521FF311D3DAA0C0034CBCA /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF301D3DAA0C0034CBCA /* Review.m */; };
 		5521FF341D3DAA240034CBCA /* ReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF331D3DAA240034CBCA /* ReviewTableViewCell.m */; };
+		5521FF3C1D3DC2750034CBCA /* ReviewWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF3B1D3DC2750034CBCA /* ReviewWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		5521FF321D3DAA240034CBCA /* ReviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewTableViewCell.h; sourceTree = "<group>"; };
 		5521FF331D3DAA240034CBCA /* ReviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewTableViewCell.m; sourceTree = "<group>"; };
 		5521FF391D3DB1A00034CBCA /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5521FF3A1D3DC2750034CBCA /* ReviewWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewWebViewController.h; sourceTree = "<group>"; };
+		5521FF3B1D3DC2750034CBCA /* ReviewWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,7 @@
 			children = (
 				550AA36A1D3D45B900A3773E /* AppDelegate.h */,
 				550AA36B1D3D45B900A3773E /* AppDelegate.m */,
+				5521FF391D3DB1A00034CBCA /* Constants.h */,
 				5521FF381D3DAC350034CBCA /* ViewController */,
 				5521FF371D3DAC160034CBCA /* Views */,
 				5521FF351D3DABD80034CBCA /* Model */,
@@ -136,7 +140,8 @@
 				5521FF2D1D3DA9C80034CBCA /* ReviewsTableViewController.m */,
 				550AA36D1D3D45B900A3773E /* ViewController.h */,
 				550AA36E1D3D45B900A3773E /* ViewController.m */,
-				5521FF391D3DB1A00034CBCA /* Constants.h */,
+				5521FF3A1D3DC2750034CBCA /* ReviewWebViewController.h */,
+				5521FF3B1D3DC2750034CBCA /* ReviewWebViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				5521FF311D3DAA0C0034CBCA /* Review.m in Sources */,
 				5521FF2E1D3DA9C80034CBCA /* ReviewsTableViewController.m in Sources */,
 				550AA3691D3D45B900A3773E /* main.m in Sources */,
+				5521FF3C1D3DC2750034CBCA /* ReviewWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

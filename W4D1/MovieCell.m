@@ -17,6 +17,10 @@
 
 @implementation MovieCell
 
+//+ (instancetype)cellWithMovie:(Movie *)movie {
+//    return [[self alloc] initWithMovie:movie];
+//}
+
 -(void)prepareForReuse {
     self.imageView.image = nil; 
     [self.imageTask cancel];
@@ -24,6 +28,7 @@
 
 - (void)setupWithMovie:(Movie *)movie {
     [self.movieLabel setText:movie.title];
+    
     
     NSURL *url = [NSURL URLWithString:movie.thumbNailURLAsString];
     NSURLSession *sessions = [NSURLSession sharedSession];

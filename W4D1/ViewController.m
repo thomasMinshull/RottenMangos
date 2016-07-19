@@ -44,6 +44,7 @@
             NSDictionary *allResponses = [NSJSONSerialization JSONObjectWithData:data
                                                                          options:0
                                                                            error:&jsonError];
+            // todo: add nil check for jsonError
             
             NSLog(@"all Responses, %@", allResponses);
             
@@ -88,9 +89,12 @@
     MovieCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCell" forIndexPath:indexPath];
     
     NSLog(@"Movie Cell ClassName: %@", NSStringFromClass([MovieCell class]));
-    
+//    MovieCell *c = [MovieCell cellWithMovie:self.movies[indexPath.row]];
     [cell setupWithMovie:self.movies[indexPath.row]];
-    return cell; 
+    return cell;
+    
+    
+//    return [self.tableView cell:[MyCell class] object:myArray[indexPath.row]];
 }
 
 

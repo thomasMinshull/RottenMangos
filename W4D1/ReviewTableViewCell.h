@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *criticLabel;
 @property (weak, nonatomic) IBOutlet UILabel *quoteLabel;
 
-
 - (void)setupWithReview:(Review *)review;
 
 @end

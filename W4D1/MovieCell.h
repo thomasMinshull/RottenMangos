@@ -10,9 +10,12 @@
 #import "Movie.h"
 
 @interface MovieCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView; // outlets should be private
 @property (weak, nonatomic) IBOutlet UILabel *movieLabel;
 
 - (void)setupWithMovie:(Movie *)movie;
+
+//- (instancetype)initWithJson:(NSDictionary *)json;
+//+ (instancetype)cellWithMovie:(Movie *)movie;
 
 @end

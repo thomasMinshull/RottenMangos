@@ -8,6 +8,7 @@
 
 #import "ReviewsTableViewController.h"
 #import "ReviewTableViewCell.h"
+#import "ReviewWebViewController.h"
 #import "Constants.h"
 #import "Review.h"
 
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.reviews = [@[] mutableCopy];
+    self.reviews = [@[] mutableCopy]; // [MutiableArray new] more readable
     self.tableView.estimatedRowHeight = 194;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
@@ -45,11 +46,12 @@
             Review *tempReview;
             
             for (NSDictionary *review in responseReviews[@"reviews"]) {
-                tempReview = [Review new];
+                tempReview = [Review new]; // [tempReview alloc] initWithJson:review];
                 
                 tempReview.critic = [review objectForKey:@"critic"];
                 tempReview.publication = [review objectForKey:@"publication"];
                 tempReview.quote = [review objectForKey:@"quote"];
+                tempReview.link = [[review objectForKey:@"links"] objectForKey:@"review"];
                 
                 [self.reviews addObject:tempReview];
             }
@@ -70,7 +72,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.reviews count];;
+    return [self.reviews count];
 }
 
 
@@ -78,13 +80,21 @@
     
     ReviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ReviewTableViewCell class]) forIndexPath:indexPath];
     
-    [cell setupWithReview:_reviews[indexPath.row]];
+    [cell setupWithReview:self.reviews[indexPath.row]];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ReviewWebViewController *wvc = [segue destinationViewController];
+    wvc.review = self.reviews[self.tableView.indexPathForSelectedRow.row];
 }
 
 @end
