@@ -14,6 +14,11 @@
 		550AA3751D3D45B900A3773E /* W4D1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 550AA3731D3D45B900A3773E /* W4D1.xcdatamodeld */; };
 		550AA3771D3D45B900A3773E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550AA3761D3D45B900A3773E /* Assets.xcassets */; };
 		550AA37A1D3D45B900A3773E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 550AA3781D3D45B900A3773E /* LaunchScreen.storyboard */; };
+		5521FF281D3D84D00034CBCA /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF271D3D84D00034CBCA /* Movie.m */; };
+		5521FF2B1D3D87750034CBCA /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF2A1D3D87750034CBCA /* MovieCell.m */; };
+		5521FF2E1D3DA9C80034CBCA /* ReviewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF2D1D3DA9C80034CBCA /* ReviewsTableViewController.m */; };
+		5521FF311D3DAA0C0034CBCA /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF301D3DAA0C0034CBCA /* Review.m */; };
+		5521FF341D3DAA240034CBCA /* ReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF331D3DAA240034CBCA /* ReviewTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,17 @@
 		550AA3761D3D45B900A3773E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		550AA3791D3D45B900A3773E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		550AA37B1D3D45B900A3773E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5521FF261D3D84D00034CBCA /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		5521FF271D3D84D00034CBCA /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		5521FF291D3D87750034CBCA /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
+		5521FF2A1D3D87750034CBCA /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
+		5521FF2C1D3DA9C80034CBCA /* ReviewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsTableViewController.h; sourceTree = "<group>"; };
+		5521FF2D1D3DA9C80034CBCA /* ReviewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsTableViewController.m; sourceTree = "<group>"; };
+		5521FF2F1D3DAA0C0034CBCA /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		5521FF301D3DAA0C0034CBCA /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
+		5521FF321D3DAA240034CBCA /* ReviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewTableViewCell.h; sourceTree = "<group>"; };
+		5521FF331D3DAA240034CBCA /* ReviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewTableViewCell.m; sourceTree = "<group>"; };
+		5521FF391D3DB1A00034CBCA /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +78,9 @@
 			children = (
 				550AA36A1D3D45B900A3773E /* AppDelegate.h */,
 				550AA36B1D3D45B900A3773E /* AppDelegate.m */,
-				550AA36D1D3D45B900A3773E /* ViewController.h */,
-				550AA36E1D3D45B900A3773E /* ViewController.m */,
+				5521FF381D3DAC350034CBCA /* ViewController */,
+				5521FF371D3DAC160034CBCA /* Views */,
+				5521FF351D3DABD80034CBCA /* Model */,
 				550AA3701D3D45B900A3773E /* Main.storyboard */,
 				550AA3761D3D45B900A3773E /* Assets.xcassets */,
 				550AA3781D3D45B900A3773E /* LaunchScreen.storyboard */,
@@ -80,6 +97,48 @@
 				550AA3681D3D45B900A3773E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5521FF351D3DABD80034CBCA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5521FF261D3D84D00034CBCA /* Movie.h */,
+				5521FF271D3D84D00034CBCA /* Movie.m */,
+				5521FF2F1D3DAA0C0034CBCA /* Review.h */,
+				5521FF301D3DAA0C0034CBCA /* Review.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5521FF361D3DAC000034CBCA /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				5521FF291D3D87750034CBCA /* MovieCell.h */,
+				5521FF2A1D3D87750034CBCA /* MovieCell.m */,
+				5521FF321D3DAA240034CBCA /* ReviewTableViewCell.h */,
+				5521FF331D3DAA240034CBCA /* ReviewTableViewCell.m */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		5521FF371D3DAC160034CBCA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5521FF361D3DAC000034CBCA /* cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5521FF381D3DAC350034CBCA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5521FF2C1D3DA9C80034CBCA /* ReviewsTableViewController.h */,
+				5521FF2D1D3DA9C80034CBCA /* ReviewsTableViewController.m */,
+				550AA36D1D3D45B900A3773E /* ViewController.h */,
+				550AA36E1D3D45B900A3773E /* ViewController.m */,
+				5521FF391D3DB1A00034CBCA /* Constants.h */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +211,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5521FF341D3DAA240034CBCA /* ReviewTableViewCell.m in Sources */,
+				5521FF2B1D3D87750034CBCA /* MovieCell.m in Sources */,
 				550AA36F1D3D45B900A3773E /* ViewController.m in Sources */,
 				550AA3751D3D45B900A3773E /* W4D1.xcdatamodeld in Sources */,
+				5521FF281D3D84D00034CBCA /* Movie.m in Sources */,
 				550AA36C1D3D45B900A3773E /* AppDelegate.m in Sources */,
+				5521FF311D3DAA0C0034CBCA /* Review.m in Sources */,
+				5521FF2E1D3DA9C80034CBCA /* ReviewsTableViewController.m in Sources */,
 				550AA3691D3D45B900A3773E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +368,7 @@
 				550AA3801D3D45B900A3773E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

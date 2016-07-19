@@ -7,8 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "ReviewsTableViewController.h"
+#import "Movie.h"
+#import "MovieCell.h"
+#import "Constants.h"
 
 @interface ViewController ()
+
+@property (strong, nonatomic) NSMutableArray *movies;
 
 @end
 
@@ -17,24 +23,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *apiKey = @"c9zzxwtuc3q2tftqata3k59w";
+    self.movies = [@[] mutableCopy];
+    
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    
+    // Networking
     NSString *urlAsString = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=";
     
-    NSURL *url = [NSURL URLWithString:[urlAsString stringByAppendingString:apiKey]];
+    NSURL *url = [NSURL URLWithString:[urlAsString stringByAppendingString:API_KEY]];
     NSURLSession *sessions = [NSURLSession sharedSession];
     
+    
+    __weak ViewController *weakSelf = self;
     [[sessions dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if (error == nil) {
             NSError *jsonError = nil;
             
-            NSArray *allResponses = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            NSDictionary *allResponses = [NSJSONSerialization JSONObjectWithData:data
+                                                                         options:0
+                                                                           error:&jsonError];
             
             NSLog(@"all Responses, %@", allResponses);
             
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self.tableView reloadData];
-//            });
+            NSArray *moviesResponse = allResponses[@"movies"];
+            
+            Movie *tempMovie;
+            
+            for (NSDictionary *movieWithAttributes in moviesResponse) {
+                tempMovie = [Movie new];
+                tempMovie.movieID = movieWithAttributes[@"id"];
+                tempMovie.thumbNailURLAsString = movieWithAttributes[@"posters"][@"thumbnail"];
+                tempMovie.title = movieWithAttributes[@"title"];
+                tempMovie.summary = movieWithAttributes[@"synopsis"];
+                
+                [self.movies addObject:tempMovie];
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.collectionView reloadData];
+            });
+            
         }
         
     }] resume];
@@ -45,5 +75,37 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark -Data Source & Delegate Methodes 
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [self.movies count];
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    MovieCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCell" forIndexPath:indexPath];
+    
+    NSLog(@"Movie Cell ClassName: %@", NSStringFromClass([MovieCell class]));
+    
+    [cell setupWithMovie:self.movies[indexPath.row]];
+    return cell; 
+}
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    ReviewsTableViewController *tvc = [segue destinationViewController];
+    NSArray *selectedIndexPaths = [self.collectionView indexPathsForSelectedItems];
+    tvc.movie = self.movies[[[selectedIndexPaths firstObject] row]];
+    
+}
+
 
 @end
