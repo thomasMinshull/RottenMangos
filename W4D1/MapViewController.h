@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 @import MapKit;
 
 @interface MapViewController : UIViewController
+
+@property (strong, nonatomic) Movie *movie;
 
 @end

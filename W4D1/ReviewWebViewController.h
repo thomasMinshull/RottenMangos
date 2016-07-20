@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Review.h"
+#import "Movie.h"
 
 @interface ReviewWebViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) Review *review;
+@property (strong, nonatomic) Movie *movie;
 
 @end

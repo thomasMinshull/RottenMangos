@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "MyLocationManager.h"
+#import "Theater.h"
 @import MapKit;
 
 #define zoominMapArea 2100
@@ -39,7 +40,52 @@
 }
 
 - (void)currentAddressUpdated:(CLPlacemark *)placemark {
-    NSLog(@"postal code for updated placemark: %@",placemark.postalCode);
+    NSLog(@"postal code for updated placemark: %@",placemark.postalCode); //only includes half the postalCode !!!!!
+    
+    //Networking
+    NSString *urlAsString = [NSString stringWithFormat:@"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json?address=%@&movie=%@", placemark.postalCode, self.movie.title]; // Including spaces in Names 
+    NSURL *url = [NSURL URLWithString:urlAsString];
+    NSURLSession *sessions = [NSURLSession sharedSession];
+    
+ //   __weak MapViewController *weakSelf = self;
+    [[sessions dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                NSLog(@"response: %@", response);
+        if (error == nil) {
+            NSError *jsonError = nil;
+            
+            
+            NSDictionary *tempDic = [NSJSONSerialization JSONObjectWithData:data
+                                                                            options:0
+                                                                              error:&jsonError];
+            
+            NSArray *responseTheaters = [tempDic objectForKey:@"theater"];
+            
+            NSLog(@"responseTheaterss: %@", responseTheaters);
+            
+            //Clear out old annotations
+            for (id<MKAnnotation> annotation in self.mapView.annotations) {
+                [self.mapView removeAnnotation:annotation];
+            }
+            
+            //Add new annotations
+            Theater *tempTheater;
+      
+            for (NSDictionary *theater in responseTheaters) {
+                tempTheater = [Theater new];
+                tempTheater.name = [theater objectForKey:@"name"];
+                tempTheater.address = [theater objectForKey:@"address"];
+                
+                NSNumber *lst = [theater objectForKey:@"lst"];
+                NSNumber *lng = [theater objectForKey:@"lng"];
+                tempTheater.coordinate = CLLocationCoordinate2DMake([lst doubleValue], [lng doubleValue]);
+                
+                [self.mapView addAnnotation:tempTheater];
+            }
+            
+
+        }
+        
+    }] resume];
 }
 
 @end

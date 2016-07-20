@@ -9,6 +9,7 @@
 #import "ReviewsTableViewController.h"
 #import "ReviewTableViewCell.h"
 #import "ReviewWebViewController.h"
+#import "MapViewController.h"
 #import "Constants.h"
 #import "Review.h"
 
@@ -22,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBarHidden = NO;
     
 //    self.reviews = [@[] mutableCopy]; // [MutiableArray new] more readable
     self.reviews = [NSMutableArray new];
@@ -95,6 +98,8 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([sender isKindOfClass:[UIBarButtonItem class]]) {
+        MapViewController *mvc = [segue destinationViewController];
+        mvc.movie = self.movie;
         
     } else {
         ReviewWebViewController *wvc = [segue destinationViewController];

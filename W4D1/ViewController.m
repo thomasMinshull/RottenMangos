@@ -28,6 +28,8 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
+    self.navigationController.navigationBarHidden = YES;
+    
     // Networking
     NSString *urlAsString = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=";
     

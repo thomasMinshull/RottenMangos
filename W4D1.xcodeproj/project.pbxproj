@@ -23,6 +23,7 @@
 		5521FF6B1D3EC0EE0034CBCA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5521FF6A1D3EC0EE0034CBCA /* MapKit.framework */; };
 		5521FF6E1D3EC16E0034CBCA /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF6D1D3EC16E0034CBCA /* MapViewController.m */; };
 		5521FF711D3EE0F70034CBCA /* MyLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF701D3EE0F70034CBCA /* MyLocationManager.m */; };
+		5521FF741D3F61D90034CBCA /* Theater.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF731D3F61D90034CBCA /* Theater.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		5521FF6D1D3EC16E0034CBCA /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		5521FF6F1D3EE0F70034CBCA /* MyLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocationManager.h; sourceTree = "<group>"; };
 		5521FF701D3EE0F70034CBCA /* MyLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocationManager.m; sourceTree = "<group>"; };
+		5521FF721D3F61D90034CBCA /* Theater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theater.h; sourceTree = "<group>"; };
+		5521FF731D3F61D90034CBCA /* Theater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theater.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 			children = (
 				5521FF261D3D84D00034CBCA /* Movie.h */,
 				5521FF271D3D84D00034CBCA /* Movie.m */,
+				5521FF721D3F61D90034CBCA /* Theater.h */,
+				5521FF731D3F61D90034CBCA /* Theater.m */,
 				5521FF2F1D3DAA0C0034CBCA /* Review.h */,
 				5521FF301D3DAA0C0034CBCA /* Review.m */,
 				5521FF6F1D3EE0F70034CBCA /* MyLocationManager.h */,
@@ -234,6 +239,7 @@
 				5521FF711D3EE0F70034CBCA /* MyLocationManager.m in Sources */,
 				5521FF341D3DAA240034CBCA /* ReviewTableViewCell.m in Sources */,
 				5521FF2B1D3D87750034CBCA /* MovieCell.m in Sources */,
+				5521FF741D3F61D90034CBCA /* Theater.m in Sources */,
 				550AA36F1D3D45B900A3773E /* ViewController.m in Sources */,
 				550AA3751D3D45B900A3773E /* W4D1.xcdatamodeld in Sources */,
 				5521FF281D3D84D00034CBCA /* Movie.m in Sources */,
