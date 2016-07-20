@@ -23,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.reviews = [@[] mutableCopy]; // [MutiableArray new] more readable
+//    self.reviews = [@[] mutableCopy]; // [MutiableArray new] more readable
+    self.reviews = [NSMutableArray new];
     self.tableView.estimatedRowHeight = 194;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
@@ -46,7 +47,7 @@
             Review *tempReview;
             
             for (NSDictionary *review in responseReviews[@"reviews"]) {
-                tempReview = [Review new]; // [tempReview alloc] initWithJson:review];
+                tempReview = [Review new]; // [tempReview alloc] initWithJson:review]; refactor to use 
                 
                 tempReview.critic = [review objectForKey:@"critic"];
                 tempReview.publication = [review objectForKey:@"publication"];

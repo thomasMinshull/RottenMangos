@@ -10,4 +10,13 @@
 
 @implementation Review
 
+//- (instancetype)initWithJson:(NSJSONSerialization *)json {
+//    self = [super init];
+//    if (self) {
+//        
+//        
+//    }
+//    return self;
+//}
+
 @end

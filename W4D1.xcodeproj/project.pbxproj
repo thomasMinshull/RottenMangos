@@ -20,6 +20,9 @@
 		5521FF311D3DAA0C0034CBCA /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF301D3DAA0C0034CBCA /* Review.m */; };
 		5521FF341D3DAA240034CBCA /* ReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF331D3DAA240034CBCA /* ReviewTableViewCell.m */; };
 		5521FF3C1D3DC2750034CBCA /* ReviewWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF3B1D3DC2750034CBCA /* ReviewWebViewController.m */; };
+		5521FF6B1D3EC0EE0034CBCA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5521FF6A1D3EC0EE0034CBCA /* MapKit.framework */; };
+		5521FF6E1D3EC16E0034CBCA /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF6D1D3EC16E0034CBCA /* MapViewController.m */; };
+		5521FF711D3EE0F70034CBCA /* MyLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5521FF701D3EE0F70034CBCA /* MyLocationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,11 @@
 		5521FF391D3DB1A00034CBCA /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		5521FF3A1D3DC2750034CBCA /* ReviewWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewWebViewController.h; sourceTree = "<group>"; };
 		5521FF3B1D3DC2750034CBCA /* ReviewWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewWebViewController.m; sourceTree = "<group>"; };
+		5521FF6A1D3EC0EE0034CBCA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5521FF6C1D3EC16E0034CBCA /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		5521FF6D1D3EC16E0034CBCA /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		5521FF6F1D3EE0F70034CBCA /* MyLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocationManager.h; sourceTree = "<group>"; };
+		5521FF701D3EE0F70034CBCA /* MyLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5521FF6B1D3EC0EE0034CBCA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +72,7 @@
 		550AA35B1D3D45B900A3773E = {
 			isa = PBXGroup;
 			children = (
+				5521FF6A1D3EC0EE0034CBCA /* MapKit.framework */,
 				550AA3661D3D45B900A3773E /* W4D1 */,
 				550AA3651D3D45B900A3773E /* Products */,
 			);
@@ -110,6 +120,8 @@
 				5521FF271D3D84D00034CBCA /* Movie.m */,
 				5521FF2F1D3DAA0C0034CBCA /* Review.h */,
 				5521FF301D3DAA0C0034CBCA /* Review.m */,
+				5521FF6F1D3EE0F70034CBCA /* MyLocationManager.h */,
+				5521FF701D3EE0F70034CBCA /* MyLocationManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -142,6 +154,8 @@
 				550AA36E1D3D45B900A3773E /* ViewController.m */,
 				5521FF3A1D3DC2750034CBCA /* ReviewWebViewController.h */,
 				5521FF3B1D3DC2750034CBCA /* ReviewWebViewController.m */,
+				5521FF6C1D3EC16E0034CBCA /* MapViewController.h */,
+				5521FF6D1D3EC16E0034CBCA /* MapViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -216,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5521FF711D3EE0F70034CBCA /* MyLocationManager.m in Sources */,
 				5521FF341D3DAA240034CBCA /* ReviewTableViewCell.m in Sources */,
 				5521FF2B1D3D87750034CBCA /* MovieCell.m in Sources */,
 				550AA36F1D3D45B900A3773E /* ViewController.m in Sources */,
@@ -226,6 +241,7 @@
 				5521FF2E1D3DA9C80034CBCA /* ReviewsTableViewController.m in Sources */,
 				550AA3691D3D45B900A3773E /* main.m in Sources */,
 				5521FF3C1D3DC2750034CBCA /* ReviewWebViewController.m in Sources */,
+				5521FF6E1D3EC16E0034CBCA /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
