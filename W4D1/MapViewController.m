@@ -38,4 +38,8 @@
     [self.mapView setRegion:adjustedRegion animated:YES];
 }
 
+- (void)currentAddressUpdated:(CLPlacemark *)placemark {
+    NSLog(@"postal code for updated placemark: %@",placemark.postalCode);
+}
+
 @end

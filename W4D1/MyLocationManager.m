@@ -9,6 +9,12 @@
 #import "MyLocationManager.h"
 @import CoreLocation;
 
+@interface MyLocationManager ()
+
+@property (strong, nonatomic) CLGeocoder *geoCoder;
+
+@end
+
 @implementation MyLocationManager
 
 + (instancetype)sharedManager {
@@ -35,6 +41,8 @@
                 self.locationManager.delegate = self;
                 [self.locationManager requestWhenInUseAuthorization]; // alertViewController asks users for location permissions
                 NSLog(@"new location Manager in startLocationManager");
+                
+                self.geoCoder = [CLGeocoder new];
             }
             
             [self.locationManager requestWhenInUseAuthorization];
@@ -88,40 +96,29 @@
         self.currentLocation = location;
         [self.delegate recievedNewLocation:location];
         
-        if (location.horizontalAccuracy <= self.locationManager.desiredAccuracy) { //good enough 
+        //Reverse GeoCode
+        [self.geoCoder reverseGeocodeLocation:self.currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+            NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+            if (error == nil && [placemarks count] > 0) {
+                CLPlacemark *placemark = [placemarks lastObject];
+                [self.delegate currentAddressUpdated:placemark];
+            } else {
+                NSLog(@"%@", error.debugDescription);
+            }
+        }];
+        
+        
+/*        //if location is good enough stop updating
+        if (location.horizontalAccuracy <= self.locationManager.desiredAccuracy) {
             if ([CLLocationManager locationServicesEnabled]) {
                 if (self.locationManager) {
-   //                 [self.locationManager stopUpdatingLocation]; // stops getting location updates 
+                    [self.locationManager stopUpdatingLocation]; // stops getting location updates
                     NSLog(@"Stop Regular Location Manager");
                 }
             }
         }
-
+*/
     }
-    /* Danny's Code
-     NSLog(@"Time %@, latitude %+.6f, longitude %+.6f currentLocation accuracy %1.2f loc accuracy %1.2f timeinterval %f",[NSDate date],loc.coordinate.latitude, loc.coordinate.longitude, loc.horizontalAccuracy, loc.verticalAccuracy, fabs([loc.timestamp timeIntervalSinceNow]));
-     
-     NSTimeInterval locationAge = -[loc.timestamp timeIntervalSinceNow];
-     if (locationAge > 10.0){
-     NSLog(@"locationAge is %1.2f",locationAge);
-     return;
-     }
-     
-     if (loc.horizontalAccuracy < 0){
-     NSLog(@"loc.horizontalAccuracy is %1.2f",loc.horizontalAccuracy);
-     return;
-     }
-     
-     if (self.currentLocation == nil || self.currentLocation.horizontalAccuracy >= loc.horizontalAccuracy){
-     
-     self.currentLocation = loc;
-     [self.delegate newLocationDetected:loc];
-     
-     if (loc.horizontalAccuracy <= self.locationManager.desiredAccuracy) {
-     [self stopLocationManager];
-     }
-     }
-     */
 }
 
 @end

@@ -13,6 +13,7 @@
 @protocol MyLocationManagerDelegate <NSObject>
 
 - (void)recievedNewLocation:(CLLocation *)location;
+- (void)currentAddressUpdated:(CLPlacemark *)placemark;
 
 @end
 

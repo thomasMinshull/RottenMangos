@@ -94,8 +94,12 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ReviewWebViewController *wvc = [segue destinationViewController];
-    wvc.review = self.reviews[self.tableView.indexPathForSelectedRow.row];
+    if ([sender isKindOfClass:[UIBarButtonItem class]]) {
+        
+    } else {
+        ReviewWebViewController *wvc = [segue destinationViewController];
+        wvc.review = self.reviews[self.tableView.indexPathForSelectedRow.row];
+    }
 }
 
 @end
