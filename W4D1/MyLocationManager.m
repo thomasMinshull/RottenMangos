@@ -28,6 +28,9 @@
     return myLocationManager;
 }
 
+
+#pragma mark -MyLocationManagerDelegate
+
 - (void)startLocationMonitoring {
     if ([CLLocationManager locationServicesEnabled]) {
         if ( [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined ||
@@ -75,6 +78,10 @@
     }
 }
 
+- (void)stopLocationMonitoring {
+    [self.locationManager stopUpdatingLocation];
+}
+
 #pragma mark -CLLocationManagerDelegate Methods
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
@@ -100,7 +107,7 @@
         [self.geoCoder reverseGeocodeLocation:self.currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
             if (error == nil && [placemarks count] > 0) {
-                CLPlacemark *placemark = [placemarks lastObject];
+                CLPlacemark *placemark = [placemarks lastObject]; //placemark can contain postal codes with spaces in them 
                 [self.delegate currentAddressUpdated:placemark];
             } else {
                 NSLog(@"%@", error.debugDescription);
@@ -120,5 +127,6 @@
 */
     }
 }
+
 
 @end

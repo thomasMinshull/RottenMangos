@@ -26,5 +26,6 @@
 
 + (id)sharedManager;
 - (void)startLocationMonitoring;
+- (void)stopLocationMonitoring;
 
 @end

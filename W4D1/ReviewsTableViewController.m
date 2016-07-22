@@ -26,7 +26,6 @@
     
     self.navigationController.navigationBarHidden = NO;
     
-//    self.reviews = [@[] mutableCopy]; // [MutiableArray new] more readable
     self.reviews = [NSMutableArray new];
     self.tableView.estimatedRowHeight = 194;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -38,14 +37,13 @@
     
     __weak ReviewsTableViewController *weakSelf = self;
     [[sessions dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        NSLog(@"response: %@", response);
+        
         if (error == nil) {
             NSError *jsonError = nil;
             
             NSDictionary *responseReviews = [NSJSONSerialization JSONObjectWithData:data
                                                                             options:0
                                                                               error:&jsonError];
-//            NSLog(@"responseReviews: %@", responseReviews);
             
             Review *tempReview;
             
@@ -69,11 +67,8 @@
     
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
+#pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.reviews count];
